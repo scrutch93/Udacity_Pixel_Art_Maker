@@ -7,18 +7,18 @@
 
 
 
-var canvasSize = document.getElementById("pixelCanvas");
+var canvasSize = document.getElementById("sizePicker");
 
 
 // When size is submitted by the user, call makeGrid()
 
-canvasSize.addEventListener("button", function(){
+canvasSize.addEventListener("submit", function(){
     var gridHeight = document.getElementById("inputHeight").value;// get height
 
     var gridWidth = document.getElementById("inputWidth").value;// get width
 
 
-    console.log(gridHeight + " " + gridWidth);
+    alert(gridHeight + " " + gridWidth);
 
 
    document.getElementById("pixelCanvas").innerHTML = "";//clearing out the table
