@@ -4,6 +4,10 @@
 
 // Select size input
 
+var gridHeight = document.getElementById("inputHeight").value;// get height
+
+var gridWidth = document.getElementById("inputWidth").value;// get width
+
 
 
 
@@ -12,12 +16,10 @@ var canvasSize = document.getElementById("sizePicker");
 
 // When size is submitted by the user, call makeGrid()
 
-canvasSize.addEventListener("submit", function(){
-    var gridHeight = document.getElementById("inputHeight").value;// get height
+canvasSize.addEventListener("submit", function(event){
 
-    var gridWidth = document.getElementById("inputWidth").value;// get width
-
-
+    event.preventDefault()
+   
     alert(gridHeight + " " + gridWidth);
 
 
@@ -30,16 +32,39 @@ canvasSize.addEventListener("submit", function(){
 });
 
 
-function makeGrid(h, w) {
+function makeGrid(x, y) {
 
 // Your code goes here!
-    
+var table = document.getElementById("pixelCanvas"), tr, td;
 
-    
-
-
-
-
-
-
+   
+    for (x = 0; gridWidth < 20; x++){
+    tr = document.createElement('tr');
+    for (y = 0; y < gridHeight; y++){
+        td = document.createElement('td');
+        tr.appendChild(td);   
+    }
+   table.appendChild(tr);
 }
+document.getElementById('container').appendChild(table);
+}
+ /*for (x = 0; x < 16; x++) {
+     document.write()
+     for(y =0; y < 16; y++){
+
+     }
+ }*/
+
+
+     
+     
+    
+
+    
+
+
+
+
+
+
+
