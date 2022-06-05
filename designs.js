@@ -1,19 +1,17 @@
 let canvasSize = document.getElementById("sizePicker");
 
-// When size is submitted by the user, call makeGrid()
-
 canvasSize.addEventListener("submit", function (event) {
   event.preventDefault();
   document.getElementById("pixelCanvas").innerHTML = "";
 
-  let gridHeight = document.getElementById("inputHeight").value; // get height
+  let gridHeight = document.getElementById("inputHeight").value; 
 
-  let gridWidth = document.getElementById("inputWidth").value; // get width
+  let gridWidth = document.getElementById("inputWidth").value; 
 
   makeGrid(gridWidth, gridHeight);
 });
 
-function makeGrid(width, height, cell) {
+function makeGrid(width, height) {
   let table = document.getElementById("pixelCanvas");
 
   for (x = 0; x < height; x++) {
@@ -25,13 +23,18 @@ function makeGrid(width, height, cell) {
       tr.appendChild(td);
     }
   }
-  let color = document.getElementById("colorPicker").value;
+
+ 
 
   table.addEventListener("click", function (event) {
+    
+    let color = document.getElementById("colorPicker").value;
     let cell = event.target.closest("td");
+    
     cell.style.backgroundColor = color;
     
     console.log(color);
   });
+  
  
 }
