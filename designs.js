@@ -1,68 +1,37 @@
-// Select color input
-
-//var colorPick = document.getElementById('colorPicker');
-
-// Select size input
-
-
-var canvasSize = document.getElementById("sizePicker");
+let canvasSize = document.getElementById("sizePicker");
 
 // When size is submitted by the user, call makeGrid()
 
-canvasSize.addEventListener("submit", function(event){
-  
-   event.preventDefault()
-   document.getElementById("pixelCanvas").innerHTML ="";
+canvasSize.addEventListener("submit", function (event) {
+  event.preventDefault();
+  document.getElementById("pixelCanvas").innerHTML = "";
 
-    var gridHeight = document.getElementById("inputHeight").value;// get height
+  let gridHeight = document.getElementById("inputHeight").value; // get height
 
-    var gridWidth = document.getElementById("inputWidth").value;// get width
+  let gridWidth = document.getElementById("inputWidth").value; // get width
 
-    
-    
-   
-    //alert(gridHeight + " " + gridWidth);
-
-
-  //document.getElementById("pixelCanvas").innerHTML = "";//clearing out the table
-
-
-  makeGrid(gridWidth,gridHeight);
-  
+  makeGrid(gridWidth, gridHeight);
 });
 
-function makeGrid(width, height) {
+function makeGrid(width, height, cell) {
+  let table = document.getElementById("pixelCanvas");
 
-    // Your code goes here!
-    var table = document.getElementById("pixelCanvas");
-    //var gridHeight = document.getElementById("inputHeight").value;// get height
+  for (x = 0; x < height; x++) {
+    let tr = document.createElement("tr");
+    table.appendChild(tr);
 
-   // var gridWidth = document.getElementById("inputWidth").value;// get width
-    
-        
-        for (x = 0; x < height; x++){
-       var tr = document.createElement('tr');
-       table.appendChild(tr); 
-        
-        for (y = 0; y < width; y++){
-            var td = document.createElement('td');
-            tr.appendChild(td);
-            
-        }
-        
+    for (y = 0; y < width; y++) {
+      let td = document.createElement("td");
+      tr.appendChild(td);
     }
-    //document.getElementById('pixelCanvas').appendChild(table);
-    }
+  }
+  let color = document.getElementById("colorPicker").value;
+
+  table.addEventListener("click", function (event) {
+    let cell = event.target.closest("td");
+    cell.style.backgroundColor = color;
     
-  
-
-
-     
-    
-
-
-
-
-
-
-
+    console.log(color);
+  });
+ 
+}
