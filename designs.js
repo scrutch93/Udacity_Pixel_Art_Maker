@@ -7,16 +7,17 @@
 
 var canvasSize = document.getElementById("sizePicker");
 
-
 // When size is submitted by the user, call makeGrid()
 
 canvasSize.addEventListener("submit", function(event){
-
+  
    event.preventDefault()
+   document.getElementById("pixelCanvas").innerHTML ="";
 
-   // var gridHeight = document.getElementById("inputHeight").value;// get height
+    var gridHeight = document.getElementById("inputHeight").value;// get height
 
-   // var gridWidth = document.getElementById("inputWidth").value;// get width
+    var gridWidth = document.getElementById("inputWidth").value;// get width
+
     
     
    
@@ -26,24 +27,24 @@ canvasSize.addEventListener("submit", function(event){
   //document.getElementById("pixelCanvas").innerHTML = "";//clearing out the table
 
 
-  makeGrid();
+  makeGrid(gridWidth,gridHeight);
   
 });
 
-function makeGrid() {
+function makeGrid(width, height) {
 
     // Your code goes here!
     var table = document.getElementById("pixelCanvas");
-    var gridHeight = document.getElementById("inputHeight").value;// get height
+    //var gridHeight = document.getElementById("inputHeight").value;// get height
 
-    var gridWidth = document.getElementById("inputWidth").value;// get width
+   // var gridWidth = document.getElementById("inputWidth").value;// get width
     
         
-        for (x = 0; x < gridHeight; x++){
+        for (x = 0; x < height; x++){
        var tr = document.createElement('tr');
        table.appendChild(tr); 
         
-        for (y = 0; y < gridWidth; y++){
+        for (y = 0; y < width; y++){
             var td = document.createElement('td');
             tr.appendChild(td);
             
