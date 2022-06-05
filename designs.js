@@ -12,42 +12,49 @@ var canvasSize = document.getElementById("sizePicker");
 
 canvasSize.addEventListener("submit", function(event){
 
-    event.preventDefault()
+   event.preventDefault()
 
-    var gridHeight = document.getElementById("inputHeight").value;// get height
+   // var gridHeight = document.getElementById("inputHeight").value;// get height
 
-    var gridWidth = document.getElementById("inputWidth").value;// get width
+   // var gridWidth = document.getElementById("inputWidth").value;// get width
     
     
    
-    alert(gridHeight + " " + gridWidth);
+    //alert(gridHeight + " " + gridWidth);
 
 
   //document.getElementById("pixelCanvas").innerHTML = "";//clearing out the table
 
 
+  makeGrid();
+  
+});
 
-  function makeGrid() {
+function makeGrid() {
 
     // Your code goes here!
-    var table = document.createElement("table"), tr, td, cell;
+    var table = document.getElementById("pixelCanvas");
+    var gridHeight = document.getElementById("inputHeight").value;// get height
+
+    var gridWidth = document.getElementById("inputWidth").value;// get width
     
-       
-        for (cell = 0; cell < gridWidth; cell++){
-        tr = document.createElement('tr');
-        for (cell = 0; cell < gridHeight; cell++){
-            td = document.createElement('td');
-            tr.appendChild(td); 
+        
+        for (x = 0; x < gridHeight; x++){
+       var tr = document.createElement('tr');
+       table.appendChild(tr); 
+        
+        for (y = 0; y < gridWidth; y++){
+            var td = document.createElement('td');
+            tr.appendChild(td);
             
         }
-       table.appendChild(tr);
+        
     }
-    document.getElementById('pixelCanvas').appendChild(table);
+    //document.getElementById('pixelCanvas').appendChild(table);
     }
     
-    makeGrid();
+  
 
-});
 
 
 
