@@ -36,8 +36,10 @@ function makeGrid(width, height) {
 
     let color = document.getElementById("colorPicker").value;
     let cell = event.target.closest("td");
+    if(cell){
+      cell.style.backgroundColor = color;
+    }
     
-    cell.style.backgroundColor = color;
     
   });
   
